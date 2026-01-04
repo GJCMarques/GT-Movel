@@ -1,0 +1,428 @@
+/* =================================
+   GT Móvel - Custom Styles
+   Modern 2026 Design with Glassmorphism
+   ================================= */
+
+/* --- CSS Variables --- */
+:root {
+    --primary: #F97316;
+    --primary-dark: #EA580C;
+    --primary-light: #FB923C;
+}
+
+/* --- Smooth Scrolling --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Glassmorphism Header --- */
+.glass-header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.glass-header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Navigation Links --- */
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    color: #334155;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary), var(--primary-dark));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* --- Hero Section Animations --- */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* --- Swiper Customization --- */
+.hero-swiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: white;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+    width: 32px;
+    border-radius: 6px;
+    opacity: 1;
+    background: var(--primary);
+}
+
+.hero-swiper .swiper-button-prev,
+.hero-swiper .swiper-button-next {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.hero-swiper .swiper-button-prev:hover,
+.hero-swiper .swiper-button-next:hover {
+    background: var(--primary);
+    transform: scale(1.1);
+}
+
+.hero-swiper .swiper-button-prev::after,
+.hero-swiper .swiper-button-next::after {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* --- Feature Cards Glow Effect --- */
+.feature-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+/* --- Product Cards --- */
+.product-card {
+    position: relative;
+}
+
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1rem;
+    padding: 2px;
+    background: linear-gradient(135deg, transparent, var(--primary-light), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover::after {
+    opacity: 0.3;
+}
+
+/* --- Scroll to Top Button Progress Ring --- */
+#scroll-to-top.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.scroll-progress {
+    transform-origin: center;
+    transition: stroke-dashoffset 0.1s linear;
+}
+
+/* --- Parallax Effect --- */
+.parallax-bg {
+    transition: transform 0.3s ease-out;
+}
+
+/* --- Scroll Reveal Animation (AOS-style) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Form Inputs Styling --- */
+.form-input,
+.form-textarea {
+    transition: all 0.3s ease;
+    border: 2px solid #E2E8F0;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+/* --- Loading Spinner --- */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 0.8s linear infinite;
+}
+
+/* --- Toast Notification --- */
+.toast {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    transform: translateX(400px);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast.success {
+    border-left: 4px solid #10B981;
+}
+
+.toast.error {
+    border-left: 4px solid #EF4444;
+}
+
+/* --- Lightbox Modal --- */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active img {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background: var(--primary);
+    transform: rotate(90deg);
+}
+
+/* --- Masonry Grid --- */
+.masonry-grid {
+    column-count: 1;
+    column-gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .masonry-grid {
+        column-count: 3;
+    }
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.masonry-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.masonry-item img {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+}
+
+.masonry-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.masonry-item:hover .masonry-overlay {
+    opacity: 1;
+}
+
+.masonry-overlay svg {
+    width: 48px;
+    height: 48px;
+    color: white;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* --- Iframe Container Responsive --- */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.iframe-container iframe {
+    display: block;
+    border: none;
+    width: 100%;
+}
+
+/* --- Responsive Utilities --- */
+@media (max-width: 768px) {
+    .hero-swiper .swiper-button-prev,
+    .hero-swiper .swiper-button-next {
+        display: none;
+    }
+
+    .masonry-grid {
+        column-count: 1;
+    }
+}
+
+/* --- Selection Styling --- */
+::selection {
+    background: var(--primary-light);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--primary-light);
+    color: white;
+}
+
+/* --- Scrollbar Styling (Webkit) --- */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* --- Print Styles --- */
+@media print {
+    .glass-header,
+    #scroll-to-top,
+    footer {
+        display: none;
+    }
+}
