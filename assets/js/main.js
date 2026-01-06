@@ -126,51 +126,80 @@ function initScrollToTop() {
 // Hero Swiper Initialization
 // =================================
 function initHeroSwiper() {
-    // Check if Swiper is available
     if (typeof Swiper === 'undefined') {
-        console.warn('Swiper.js not loaded');
+        console.warn('Swiper.js não encontrado. Verifique se importou o CDN.');
         return;
     }
 
-    const heroSwiper = document.querySelector('.hero-swiper');
-    if (!heroSwiper) return;
+    const heroContainer = document.querySelector('.hero-swiper');
+    if (!heroContainer) return;
 
     new Swiper('.hero-swiper', {
         loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        speed: 1000,
+        
         effect: 'fade',
         fadeEffect: {
             crossFade: true
         },
+
+        speed: 1000,
+
+        // Autoplay SEM pausa no mouse
+        autoplay: {
+            delay: 5000, 
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false, // Alterado para false
+        },
+
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
-            dynamicBullets: false,
+            dynamicBullets: true,
         },
+
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next-custom', 
+            prevEl: '.swiper-button-prev-custom',
         },
+
         keyboard: {
             enabled: true,
+            onlyInViewport: true,
         },
-        grabCursor: true,
+
         on: {
             init: function() {
-                // Trigger animations on first slide
                 animateSlideContent(this.slides[this.activeIndex]);
             },
             slideChange: function() {
-                // Animate content on slide change
                 animateSlideContent(this.slides[this.activeIndex]);
             }
         }
     });
 }
+
+// =================================
+// Helper: Animar Texto do Slide
+// =================================
+function animateSlideContent(slide) {
+    if (!slide) return;
+
+    // Procura todos os elementos com a classe de animação no slide atual
+    const animatedElements = slide.querySelectorAll('.animate-fade-in-up');
+    
+    animatedElements.forEach(el => {
+        // Truque para reiniciar animação CSS:
+        // 1. Remove a animação
+        el.style.animation = 'none';
+        // 2. Força o navegador a recalcular o layout (Reflow)
+        el.offsetHeight; 
+        // 3. Limpa a propriedade para que o CSS original (animation) volte a funcionar
+        el.style.animation = ''; 
+    });
+}
+
+// Executar quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', initHeroSwiper);
 
 // Animate slide content
 function animateSlideContent(slide) {
