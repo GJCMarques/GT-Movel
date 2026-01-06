@@ -134,9 +134,9 @@ function initHeroSwiper() {
     const heroContainer = document.querySelector('.hero-swiper');
     if (!heroContainer) return;
 
-    new Swiper('.hero-swiper', {
+    const heroSwiper = new Swiper('.hero-swiper', {
         loop: true,
-        
+
         effect: 'fade',
         fadeEffect: {
             crossFade: true
@@ -144,11 +144,11 @@ function initHeroSwiper() {
 
         speed: 1000,
 
-        // Autoplay SEM pausa no mouse
+        // Autoplay configurado para parar quando há interação manual
         autoplay: {
-            delay: 5000, 
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false, // Alterado para false
+            delay: 5000,
+            disableOnInteraction: true, // Para quando clicas nos botões
+            pauseOnMouseEnter: false,
         },
 
         pagination: {
@@ -158,14 +158,11 @@ function initHeroSwiper() {
         },
 
         navigation: {
-            nextEl: '.swiper-button-next-custom', 
+            nextEl: '.swiper-button-next-custom',
             prevEl: '.swiper-button-prev-custom',
         },
 
-        keyboard: {
-            enabled: true,
-            onlyInViewport: true,
-        },
+        // Controlos de teclado removidos para evitar conflitos
 
         on: {
             init: function() {
@@ -173,6 +170,12 @@ function initHeroSwiper() {
             },
             slideChange: function() {
                 animateSlideContent(this.slides[this.activeIndex]);
+            },
+            // Reinicia o autoplay após interação manual
+            slideChangeTransitionEnd: function() {
+                if (this.autoplay && !this.autoplay.running) {
+                    this.autoplay.start();
+                }
             }
         }
     });
