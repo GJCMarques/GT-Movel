@@ -162,6 +162,10 @@ function initHeroSwiper() {
             prevEl: '.swiper-button-prev-custom',
         },
 
+        // Desabilitar navegação por arrastar/swipe para permitir seleção de texto
+        simulateTouch: false,
+        allowTouchMove: false,
+
         // Controlos de teclado removidos para evitar conflitos
 
         on: {
