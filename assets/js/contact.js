@@ -370,7 +370,7 @@ if (phoneInput) {
         }
         if (value.length > 0) {
             if (value.length <= 3) {
-                value = value;
+                // No formatting needed for 3 digits or less
             } else if (value.length <= 6) {
                 value = `${value.slice(0, 3)} ${value.slice(3)}`;
             } else {

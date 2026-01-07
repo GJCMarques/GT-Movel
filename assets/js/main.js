@@ -66,15 +66,34 @@ function initScrollEffects() {
     if (!header) return;
 
     let lastScroll = 0;
+    const nav = header.querySelector('nav');
+    
+    // Altura da viewport para determinar quando o hero termina
+    // Subtraímos 50px para uma transição um pouco antes do fim exato
+    const heroHeight = window.innerHeight - 50; 
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
 
-        // Add scrolled class for glassmorphism effect
-        if (currentScroll > 50) {
-            header.querySelector('.glass-header').classList.add('scrolled');
+        // 1. Lógica de Fundo (Branco vs Transparente)
+        // Aplica a classe 'scrolled' APENAS quando passa da altura do Hero
+        if (currentScroll > heroHeight) {
+            nav.classList.add('scrolled');
+            nav.classList.remove('bg-transparent'); // Remove transparência, fica branco pelo CSS .scrolled
         } else {
-            header.querySelector('.glass-header').classList.remove('scrolled');
+            nav.classList.remove('scrolled');
+            nav.classList.add('bg-transparent'); // Volta a ser transparente no topo
+        }
+
+        // 2. Lógica de Esconder/Mostrar (Scroll Up/Down)
+        // Só esconde o header se estivermos ABAIXO do Hero
+        // Isso garante que o header está sempre visível sobre a imagem principal
+        if (currentScroll > heroHeight && currentScroll > lastScroll) {
+            // Rolar para baixo E passou do Hero -> Esconde Header
+            header.classList.add('hide');
+        } else {
+            // Rolar para cima OU ainda no Hero -> Mostra Header
+            header.classList.remove('hide');
         }
 
         lastScroll = currentScroll;
@@ -207,21 +226,6 @@ function animateSlideContent(slide) {
 
 // Executar quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', initHeroSwiper);
-
-// Animate slide content
-function animateSlideContent(slide) {
-    const animatedElements = slide.querySelectorAll('.animate-fade-in-up');
-    animatedElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-
-        setTimeout(() => {
-            el.style.transition = 'all 0.8s ease-out';
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        }, index * 200);
-    });
-}
 
 // =================================
 // Scroll Reveal Animation (AOS-style)

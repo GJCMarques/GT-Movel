@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npm test)",
+      "Bash(npm run lint)",
+      "Bash(timeout 5 npm start:*)",
+      "Bash(exit 0)"
+    ]
+  }
+}
