@@ -15,39 +15,44 @@ html {
     scroll-behavior: smooth;
 }
 
-/* --- Glassmorphism Header --- */
+/* --- Glassmorphism Header Optimizado --- */
 .glass-header {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .glass-header.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* --- Navigation Links --- */
+/* --- Navigation Links Otimizados --- */
 .nav-link {
     position: relative;
     font-weight: 500;
     color: #334155;
-    transition: color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.5rem 0.25rem;
 }
 
-/* Alteração: Animação do sublinhado do centro para as extremidades */
+/* Sublinhado elegante com animação do centro */
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -4px;
-    left: 50%; /* Começa no centro */
+    bottom: 0.25rem;
+    left: 50%;
     width: 0;
     height: 2px;
-    background: linear-gradient(to right, var(--primary), var(--primary-dark));
-    transform: translateX(-50%); /* Centraliza o elemento */
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--primary-dark));
+    transform: translateX(-50%);
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
 }
 
 .nav-link:hover,
@@ -57,7 +62,7 @@ html {
 
 .nav-link:hover::after,
 .nav-link.active::after {
-    width: 100%; /* Expande para ambos os lados */
+    width: 100%;
 }
 
 /* --- Hero Section Animations --- */

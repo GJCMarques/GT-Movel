@@ -117,29 +117,37 @@
             background-color: currentColor; /* Matches text color */
         }
 
-        /* --- LOGIC FOR HEADER TEXT COLORS --- */
+        /* --- HEADER TEXT COLORS & STATES --- */
 
-        /* 1. Initial State (Transparent on Dark Hero) -> White Text */
+        /* Estado Inicial: Transparente sobre Hero (Texto Branco) */
         .glass-header:not(.scrolled) .nav-link {
-            color: white; 
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-        .glass-header:not(.scrolled) .nav-link:hover {
-            color: #F97316; /* Orange hover */
-        }
-        /* Logo Filter for Initial State (White Logo) */
-        .glass-header:not(.scrolled) .logo-img {
-            filter: brightness(0) invert(1);
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            font-weight: 600;
         }
 
-        /* 2. Scrolled State (White Background) -> Black/Dark Text */
+        .glass-header:not(.scrolled) .nav-link:hover {
+            color: #FB923C;
+            text-shadow: 0 2px 12px rgba(251, 146, 60, 0.5);
+        }
+
+        /* Logo branco no estado inicial */
+        .glass-header:not(.scrolled) .logo-img {
+            filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Estado Scrolled: Fundo Branco (Texto Escuro) */
         .glass-header.scrolled .nav-link {
-            color: #334155; /* Slate 700 */
+            color: #1e293b;
+            text-shadow: none;
+            font-weight: 500;
         }
+
         .glass-header.scrolled .nav-link:hover {
-            color: #F97316; /* Orange hover */
+            color: #F97316;
         }
-        /* Logo Filter for Scrolled State (Original Color) */
+
+        /* Logo original quando scrolled */
         .glass-header.scrolled .logo-img {
             filter: none;
         }
@@ -150,25 +158,24 @@
 
     <!-- HEADER CLEAN & PROFISSIONAL (Luxury UX) -->
     <header id="main-header" class="fixed w-full top-0 z-50 transition-all duration-300">
-        <!-- Inicia transparente (bg-transparent), sem shadow, sem border. JS adiciona .scrolled -->
-        <nav class="glass-header px-6 py-6 transition-all duration-500 bg-transparent border-none shadow-none">
+        <!-- Inicia transparente, sem shadow, sem border. JS adiciona .scrolled -->
+        <nav class="glass-header px-6 py-4 transition-all duration-500 bg-transparent border-none shadow-none">
             <!-- Container flexível -->
             <div class="container mx-auto">
-                
+
                 <!-- LAYOUT FLEX -->
-                <div class="flex items-center justify-between lg:justify-center lg:gap-12">
+                <div class="flex items-center justify-between lg:justify-center lg:gap-16">
 
                     <!-- 1. LOGÓTIPO -->
                     <a href="/" class="block flex-shrink-0 hover:opacity-90 transition-opacity">
-                        <!-- Logo aumentado conforme pedido anterior -->
-                        <img src="./assets/imgs/GT_logoNT_NB.png" 
-                             alt="GT Móvel e Tien21" 
-                             class="h-16 lg:h-24 w-auto object-contain transition-all duration-300 logo-img">
+                        <!-- Logo otimizado -->
+                        <img src="./assets/imgs/GT_logoNT_NB.png"
+                             alt="GT Móvel e Tien21"
+                             class="h-14 lg:h-20 w-auto object-contain transition-all duration-300 logo-img">
                     </a>
 
-                    <!-- 2. NAVEGAÇÃO DESKTOP (Minimalista: Sem Ícones) -->
-                    <!-- Tipografia refinada: tracking-wide, uppercase subtil -->
-                    <nav class="hidden lg:flex items-center gap-10 text-lg font-medium tracking-widest uppercase">
+                    <!-- 2. NAVEGAÇÃO DESKTOP (Minimalista & Elegante) -->
+                    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium tracking-wider uppercase">
                         <a href="/" class="nav-link transition-colors">
                             Home
                         </a>
@@ -181,16 +188,14 @@
                         <a href="/sobre/" class="nav-link transition-colors">
                             Sobre Nós
                         </a>
-                        <a href="/contactos/" class="nav-link transition-colors">
-                            Contactos
-                        </a>
                         <a href="/instalacoes/" class="nav-link transition-colors">
                             Instalações
                         </a>
-                        
-                        <!-- CTA: Orçamentos (Laranja Sólido, como pedido) -->
-                        <a href="/orcamentos/" class="px-6 py-2.5 bg-primary text-white text-xs font-bold tracking-widest uppercase rounded-full hover:bg-primary-dark transition-all shadow-lg hover:shadow-orange-500/30">
+                        <a href="/orcamentos/" class="nav-link transition-colors">
                             Orçamentos
+                        </a>
+                        <a href="/contactos/" class="nav-link transition-colors">
+                            Contactos
                         </a>
                     </nav>
 
@@ -219,8 +224,8 @@
                 <a href="/portfolio/" class="hover:text-primary transition-colors">Portfólio</a>
                 <a href="/sobre/" class="hover:text-primary transition-colors">Sobre Nós</a>
                 <a href="/instalacoes/" class="hover:text-primary transition-colors">Instalações</a>
+                <a href="/orcamentos/" class="hover:text-primary transition-colors">Orçamentos</a>
                 <a href="/contactos/" class="hover:text-primary transition-colors">Contactos</a>
-                <a href="/orcamentos/" class="px-8 py-3 bg-primary text-white rounded-full hover:bg-primary-dark transition-all mt-4">Orçamentos</a>
             </nav>
         </div>
     </header>
@@ -237,17 +242,17 @@
                     <div class="swiper-slide relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" alt="Sala de Estar Moderna" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="relative z-20 container mx-auto px-6 md:px-20 lg:px-32 h-full flex flex-col justify-center">
-                            <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-6 animate-fade-in-up">Nova Coleção 2026</span>
-                            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white font-medium leading-tight mb-8 max-w-4xl animate-fade-in-up delay-100">
+                        <div class="relative z-20 container mx-auto px-8 md:px-24 lg:px-40 h-full flex flex-col justify-center">
+                            <span class="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 animate-fade-in-up">Nova Coleção 2026</span>
+                            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-medium leading-tight mb-5 max-w-4xl animate-fade-in-up delay-100">
                                 Redefina o Luxo <br>do Seu Espaço.
                             </h1>
-                            <p class="text-slate-200 text-lg font-light tracking-wide max-w-xl mb-12 animate-fade-in-up delay-200">
+                            <p class="text-slate-200 text-base md:text-lg font-light tracking-wide max-w-xl mb-8 animate-fade-in-up delay-200">
                                 Mobiliário desenhado para durar. Design exclusivo que combina funcionalidade e estética contemporânea.
                             </p>
-                            <div class="flex flex-wrap gap-6 animate-fade-in-up delay-300">
-                                <a href="/portfolio/" class="px-10 py-4 bg-white text-dark font-medium tracking-wider uppercase text-sm rounded-full hover:bg-slate-100 transition-colors shadow-lg">Ver Projetos</a>
-                                <a href="/orcamentos/" class="px-10 py-4 border border-white/50 backdrop-blur-sm text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-white hover:text-dark transition-all">Pedir Orçamento</a>
+                            <div class="flex flex-wrap gap-4 animate-fade-in-up delay-300">
+                                <a href="/portfolio/" class="px-8 py-3 bg-white text-dark font-medium tracking-wider uppercase text-xs rounded-full hover:bg-slate-100 transition-colors shadow-lg">Ver Projetos</a>
+                                <a href="/orcamentos/" class="px-8 py-3 border border-white/50 backdrop-blur-sm text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-white hover:text-dark transition-all">Pedir Orçamento</a>
                             </div>
                         </div>
                     </div>
@@ -255,15 +260,15 @@
                     <div class="swiper-slide relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2000&auto=format&fit=crop" alt="Cozinha Tien21" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="relative z-20 container mx-auto px-6 md:px-20 lg:px-32 h-full flex flex-col justify-center">
-                            <div class="flex items-center gap-4 mb-6 animate-fade-in-up">
-                                <span class="text-white font-bold tracking-widest text-sm uppercase">Parceiro Oficial</span>
-                                <div class="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1 rounded text-white font-bold text-xs tracking-wider">TIEN21</div>
+                        <div class="relative z-20 container mx-auto px-8 md:px-24 lg:px-40 h-full flex flex-col justify-center">
+                            <div class="flex items-center gap-3 mb-4 animate-fade-in-up">
+                                <span class="text-white font-bold tracking-widest text-xs uppercase">Parceiro Oficial</span>
+                                <div class="bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 rounded text-white font-bold text-xs tracking-wider">TIEN21</div>
                             </div>
-                            <h2 class="text-5xl md:text-7xl font-serif text-white font-medium mb-8 animate-fade-in-up delay-100">Cozinhas de <br>Alta Performance.</h2>
-                            <div class="flex flex-wrap gap-6 animate-fade-in-up delay-200">
-                                <a href="/eletrodomesticos/" class="px-10 py-4 bg-primary text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-primary-dark transition-colors shadow-lg">Ver Catálogo</a>
-                                <a href="/contactos/" class="px-10 py-4 border border-white/50 backdrop-blur-sm text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-white hover:text-dark transition-all">Falar com Especialista</a>
+                            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-medium mb-5 animate-fade-in-up delay-100">Cozinhas de <br>Alta Performance.</h2>
+                            <div class="flex flex-wrap gap-4 animate-fade-in-up delay-200">
+                                <a href="/eletrodomesticos/" class="px-8 py-3 bg-primary text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-primary-dark transition-colors shadow-lg">Ver Catálogo</a>
+                                <a href="/contactos/" class="px-8 py-3 border border-white/50 backdrop-blur-sm text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-white hover:text-dark transition-all">Falar com Especialista</a>
                             </div>
                         </div>
                     </div>
@@ -271,12 +276,12 @@
                     <div class="swiper-slide relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1616594039964-40891a90b39f?q=80&w=2000&auto=format&fit=crop" alt="Quarto Confortável" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="relative z-20 container mx-auto px-6 md:px-20 lg:px-32 h-full flex flex-col justify-center">
-                            <h2 class="text-5xl md:text-7xl font-serif text-white font-medium mb-8 animate-fade-in-up">Descanso Merecido.</h2>
-                            <p class="text-slate-200 text-xl font-light tracking-wide max-w-xl mb-12 animate-fade-in-up delay-100">Quartos completos desenhados para o seu conforto máximo.</p>
-                            <div class="flex flex-wrap gap-6 animate-fade-in-up delay-200">
-                                <a href="/portfolio/" class="px-10 py-4 bg-white text-dark font-medium tracking-wider uppercase text-sm rounded-full hover:bg-slate-100 transition-colors shadow-lg">Ver Quartos</a>
-                                <a href="/orcamentos/" class="px-10 py-4 border border-white/50 backdrop-blur-sm text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-white hover:text-dark transition-all">Agendar Visita</a>
+                        <div class="relative z-20 container mx-auto px-8 md:px-24 lg:px-40 h-full flex flex-col justify-center">
+                            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-medium mb-5 animate-fade-in-up">Descanso Merecido.</h2>
+                            <p class="text-slate-200 text-base md:text-lg font-light tracking-wide max-w-xl mb-8 animate-fade-in-up delay-100">Quartos completos desenhados para o seu conforto máximo.</p>
+                            <div class="flex flex-wrap gap-4 animate-fade-in-up delay-200">
+                                <a href="/portfolio/" class="px-8 py-3 bg-white text-dark font-medium tracking-wider uppercase text-xs rounded-full hover:bg-slate-100 transition-colors shadow-lg">Ver Quartos</a>
+                                <a href="/orcamentos/" class="px-8 py-3 border border-white/50 backdrop-blur-sm text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-white hover:text-dark transition-all">Agendar Visita</a>
                             </div>
                         </div>
                     </div>
@@ -284,12 +289,12 @@
                     <div class="swiper-slide relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=2000&auto=format&fit=crop" alt="Sofá Design" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="relative z-20 container mx-auto px-6 md:px-20 lg:px-32 h-full flex flex-col justify-center">
-                            <h2 class="text-5xl md:text-7xl font-serif text-white font-medium mb-8 animate-fade-in-up">Design Vivo.</h2>
-                            <p class="text-slate-200 text-xl font-light tracking-wide max-w-xl mb-12 animate-fade-in-up delay-100">Tecidos premium e cores que dão vida à sua sala.</p>
-                            <div class="flex flex-wrap gap-6 animate-fade-in-up delay-200">
-                                <a href="/portfolio/" class="px-10 py-4 bg-white text-dark font-medium tracking-wider uppercase text-sm rounded-full hover:bg-slate-100 transition-colors shadow-lg">Ver Sofás</a>
-                                <a href="/contactos/" class="px-10 py-4 border border-white/50 backdrop-blur-sm text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-white hover:text-dark transition-all">Pedir Catálogo</a>
+                        <div class="relative z-20 container mx-auto px-8 md:px-24 lg:px-40 h-full flex flex-col justify-center">
+                            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-medium mb-5 animate-fade-in-up">Design Vivo.</h2>
+                            <p class="text-slate-200 text-base md:text-lg font-light tracking-wide max-w-xl mb-8 animate-fade-in-up delay-100">Tecidos premium e cores que dão vida à sua sala.</p>
+                            <div class="flex flex-wrap gap-4 animate-fade-in-up delay-200">
+                                <a href="/portfolio/" class="px-8 py-3 bg-white text-dark font-medium tracking-wider uppercase text-xs rounded-full hover:bg-slate-100 transition-colors shadow-lg">Ver Sofás</a>
+                                <a href="/contactos/" class="px-8 py-3 border border-white/50 backdrop-blur-sm text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-white hover:text-dark transition-all">Pedir Catálogo</a>
                             </div>
                         </div>
                     </div>
@@ -297,12 +302,12 @@
                     <div class="swiper-slide relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?q=80&w=2000&auto=format&fit=crop" alt="Máquina Lavar" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="relative z-20 container mx-auto px-6 md:px-20 lg:px-32 h-full flex flex-col justify-center">
-                            <h2 class="text-5xl md:text-7xl font-serif text-white font-medium mb-8 animate-fade-in-up">Eficiência Energética.</h2>
-                            <p class="text-slate-200 text-xl font-light tracking-wide max-w-xl mb-12 animate-fade-in-up delay-100">Eletrodomésticos que poupam o ambiente e a sua carteira.</p>
-                            <div class="flex flex-wrap gap-6 animate-fade-in-up delay-200">
-                                <a href="/eletrodomesticos/" class="px-10 py-4 bg-primary text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-primary-dark transition-colors shadow-lg">Ver Máquinas</a>
-                                <a href="/contactos/" class="px-10 py-4 border border-white/50 backdrop-blur-sm text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-white hover:text-dark transition-all">Saber Mais</a>
+                        <div class="relative z-20 container mx-auto px-8 md:px-24 lg:px-40 h-full flex flex-col justify-center">
+                            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-medium mb-5 animate-fade-in-up">Eficiência Energética.</h2>
+                            <p class="text-slate-200 text-base md:text-lg font-light tracking-wide max-w-xl mb-8 animate-fade-in-up delay-100">Eletrodomésticos que poupam o ambiente e a sua carteira.</p>
+                            <div class="flex flex-wrap gap-4 animate-fade-in-up delay-200">
+                                <a href="/eletrodomesticos/" class="px-8 py-3 bg-primary text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-primary-dark transition-colors shadow-lg">Ver Máquinas</a>
+                                <a href="/contactos/" class="px-8 py-3 border border-white/50 backdrop-blur-sm text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-white hover:text-dark transition-all">Saber Mais</a>
                             </div>
                         </div>
                     </div>
@@ -310,12 +315,12 @@
                     <div class="swiper-slide relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=2000&auto=format&fit=crop" alt="Sala de Jantar" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="relative z-20 container mx-auto px-6 md:px-20 lg:px-32 h-full flex flex-col justify-center">
-                            <h2 class="text-5xl md:text-7xl font-serif text-white font-medium mb-8 animate-fade-in-up">Reunir à Mesa.</h2>
-                            <p class="text-slate-200 text-xl font-light tracking-wide max-w-xl mb-12 animate-fade-in-up delay-100">Mesas e cadeiras que convidam a longos jantares.</p>
-                            <div class="flex flex-wrap gap-6 animate-fade-in-up delay-200">
-                                <a href="/portfolio/" class="px-10 py-4 bg-white text-dark font-medium tracking-wider uppercase text-sm rounded-full hover:bg-slate-100 transition-colors shadow-lg">Ver Salas de Jantar</a>
-                                <a href="/orcamentos/" class="px-10 py-4 border border-white/50 backdrop-blur-md text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-white hover:text-dark transition-all">Orçamento</a>
+                        <div class="relative z-20 container mx-auto px-8 md:px-24 lg:px-40 h-full flex flex-col justify-center">
+                            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-medium mb-5 animate-fade-in-up">Reunir à Mesa.</h2>
+                            <p class="text-slate-200 text-base md:text-lg font-light tracking-wide max-w-xl mb-8 animate-fade-in-up delay-100">Mesas e cadeiras que convidam a longos jantares.</p>
+                            <div class="flex flex-wrap gap-4 animate-fade-in-up delay-200">
+                                <a href="/portfolio/" class="px-8 py-3 bg-white text-dark font-medium tracking-wider uppercase text-xs rounded-full hover:bg-slate-100 transition-colors shadow-lg">Ver Salas de Jantar</a>
+                                <a href="/orcamentos/" class="px-8 py-3 border border-white/50 backdrop-blur-md text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-white hover:text-dark transition-all">Orçamento</a>
                             </div>
                         </div>
                     </div>
@@ -323,12 +328,12 @@
                     <div class="swiper-slide relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000&auto=format&fit=crop" alt="Frigorífico Moderno" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="relative z-20 container mx-auto px-6 md:px-20 lg:px-32 h-full flex flex-col justify-center">
-                            <h2 class="text-5xl md:text-7xl font-serif text-white font-medium mb-8 animate-fade-in-up">Frescura Garantida.</h2>
-                            <p class="text-slate-200 text-xl font-light tracking-wide max-w-xl mb-12 animate-fade-in-up delay-100">Tecnologia de ponta para conservar os seus alimentos.</p>
-                            <div class="flex flex-wrap gap-6 animate-fade-in-up delay-200">
-                                <a href="/eletrodomesticos/" class="px-10 py-4 bg-primary text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-primary-dark transition-colors shadow-lg">Ver Frigoríficos</a>
-                                <a href="/contactos/" class="px-10 py-4 border border-white/50 backdrop-blur-md text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-white hover:text-dark transition-all">Fale Connosco</a>
+                        <div class="relative z-20 container mx-auto px-8 md:px-24 lg:px-40 h-full flex flex-col justify-center">
+                            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-medium mb-5 animate-fade-in-up">Frescura Garantida.</h2>
+                            <p class="text-slate-200 text-base md:text-lg font-light tracking-wide max-w-xl mb-8 animate-fade-in-up delay-100">Tecnologia de ponta para conservar os seus alimentos.</p>
+                            <div class="flex flex-wrap gap-4 animate-fade-in-up delay-200">
+                                <a href="/eletrodomesticos/" class="px-8 py-3 bg-primary text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-primary-dark transition-colors shadow-lg">Ver Frigoríficos</a>
+                                <a href="/contactos/" class="px-8 py-3 border border-white/50 backdrop-blur-md text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-white hover:text-dark transition-all">Fale Connosco</a>
                             </div>
                         </div>
                     </div>
@@ -336,12 +341,12 @@
                     <div class="swiper-slide relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=2000&auto=format&fit=crop" alt="Detalhe Madeira" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="relative z-20 container mx-auto px-6 md:px-20 lg:px-32 h-full flex flex-col justify-center">
-                            <h2 class="text-5xl md:text-7xl font-serif text-white font-medium mb-8 animate-fade-in-up">Acabamentos Únicos.</h2>
-                            <p class="text-slate-200 text-xl font-light tracking-wide max-w-xl mb-12 animate-fade-in-up delay-100">A beleza está nos pormenores.</p>
-                            <div class="flex flex-wrap gap-6 animate-fade-in-up delay-200">
-                                <a href="/portfolio/" class="px-10 py-4 bg-white text-dark font-medium tracking-wider uppercase text-sm rounded-full hover:bg-slate-100 transition-colors shadow-lg">Ver Materiais</a>
-                                <a href="/instalacoes/" class="px-10 py-4 border border-white/50 backdrop-blur-md text-white font-medium tracking-wider uppercase text-sm rounded-full hover:bg-white hover:text-dark transition-all">Visitar Showroom</a>
+                        <div class="relative z-20 container mx-auto px-8 md:px-24 lg:px-40 h-full flex flex-col justify-center">
+                            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-medium mb-5 animate-fade-in-up">Acabamentos Únicos.</h2>
+                            <p class="text-slate-200 text-base md:text-lg font-light tracking-wide max-w-xl mb-8 animate-fade-in-up delay-100">A beleza está nos pormenores.</p>
+                            <div class="flex flex-wrap gap-4 animate-fade-in-up delay-200">
+                                <a href="/portfolio/" class="px-8 py-3 bg-white text-dark font-medium tracking-wider uppercase text-xs rounded-full hover:bg-slate-100 transition-colors shadow-lg">Ver Materiais</a>
+                                <a href="/instalacoes/" class="px-8 py-3 border border-white/50 backdrop-blur-md text-white font-medium tracking-wider uppercase text-xs rounded-full hover:bg-white hover:text-dark transition-all">Visitar Showroom</a>
                             </div>
                         </div>
                     </div>
@@ -401,174 +406,172 @@
         </section>
     </main>
 
-    <!-- FOOTER PROFISSIONAL -->
+    <!-- FOOTER ELEGANTE & MODERNO -->
     <footer class="bg-slate-900 text-white pt-16 pb-8">
-        <div class="container mx-auto px-6">
-            <!-- Grid 3 colunas -->
+        <div class="container mx-auto px-10 lg:px-20">
+            <!-- Grid 3 colunas com melhor equilíbrio -->
             <div class="grid md:grid-cols-3 gap-12 mb-12">
 
-                <!-- Coluna 1: Siga-nos + Logo Tien21 -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Siga-nos:</h3>
+                <!-- Coluna 1: Parceria TIEN21 + Redes Sociais -->
+                <div class="flex flex-col">
+                    <h3 class="text-xs font-bold mb-6 text-slate-500 uppercase tracking-[0.15em]">Parceiro Oficial</h3>
 
-                    <!-- Redes Sociais -->
-                    <div class="flex gap-4 mb-8">
-                        <a href="https://www.facebook.com/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon group" aria-label="Facebook">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://www.instagram.com/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon group" aria-label="Instagram">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://www.linkedin.com/company/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon group" aria-label="LinkedIn">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://twitter.com/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon group" aria-label="Twitter">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
-                        </a>
+                    <!-- Logo Tien21 - MEGA SIZE -->
+                    <div class="mb-8">
+                        <img src="./assets/imgs/tien21_NB.png"
+                             alt="TIEN21 - Parceiro Oficial"
+                             class="h-44 lg:h-52 xl:h-60 w-auto object-contain opacity-85 hover:opacity-100 transition-all duration-300 hover:scale-105">
                     </div>
 
-                    <!-- Logo Tien21 -->
-                    <div class="mt-8 pt-8 border-t border-slate-800">
-                        <p class="text-sm text-slate-400 mb-4">Em parceria com TIEN21</p>
-                        <div class="flex items-center gap-3">
-                            <div class="bg-white px-4 py-2 rounded">
-                                <span class="text-blue-600 font-bold text-2xl">TIEN<span class="text-red-600">21</span></span>
-                            </div>
+                    <!-- Redes Sociais -->
+                    <div class="mt-auto">
+                        <h4 class="text-xs font-bold mb-5 text-slate-500 uppercase tracking-[0.15em]">Siga-nos</h4>
+                        <div class="flex gap-4">
+                            <a href="https://www.facebook.com/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon-footer group" aria-label="Facebook">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+
+                            <a href="https://www.instagram.com/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon-footer group" aria-label="Instagram">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+
+                            <a href="https://www.linkedin.com/company/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon-footer group" aria-label="LinkedIn">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Coluna 2: Contactos -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Contactos</h3>
+                <div class="flex flex-col">
+                    <h3 class="text-xs font-bold mb-6 text-slate-500 uppercase tracking-[0.15em]">Contactos</h3>
 
-                    <div class="space-y-4">
+                    <div class="space-y-6">
                         <!-- Nome Empresa -->
                         <div>
-                            <p class="font-semibold text-white">Andrade, Silva & Machado, Lda</p>
-                            <p class="text-sm text-slate-400">GT MÓVEL</p>
+                            <p class="font-bold text-white text-base leading-snug">Andrade, Silva & Machado, Lda</p>
+                            <p class="text-sm text-slate-500 mt-1.5 font-medium">GT MÓVEL</p>
                         </div>
 
                         <!-- Morada -->
-                        <div class="flex items-start gap-3">
-                            <svg class="w-5 h-5 mt-1 text-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-5 h-5 mt-0.5 text-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                             </svg>
                             <div>
-                                <p class="text-slate-300">Rua Luis de Camões, Nº 357</p>
-                                <p class="text-slate-300">Vila Nova de Gaia Portugal 4430-134</p>
+                                <p class="text-slate-300 text-sm leading-relaxed">Rua Luis de Camões, Nº 357</p>
+                                <p class="text-slate-300 text-sm leading-relaxed">4430-134 Vila Nova de Gaia</p>
                             </div>
                         </div>
 
                         <!-- Telefones -->
-                        <div class="flex items-start gap-3">
-                            <svg class="w-5 h-5 mt-1 text-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-5 h-5 mt-0.5 text-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                             </svg>
-                            <div>
-                                <p class="text-slate-300">
-                                    <a href="tel:+351918538184" class="hover:text-primary transition-colors">91 853 81 84</a> **
+                            <div class="space-y-2">
+                                <p class="text-slate-300 text-sm">
+                                    <a href="tel:+351918538184" class="hover:text-primary transition-colors font-medium">91 853 81 84</a>
+                                    <span class="text-xs text-slate-600 ml-2">**</span>
                                 </p>
-                                <p class="text-slate-300">
-                                    <a href="tel:+351223797454" class="hover:text-primary transition-colors">22 379 74 54</a> *
+                                <p class="text-slate-300 text-sm">
+                                    <a href="tel:+351223797454" class="hover:text-primary transition-colors font-medium">22 379 74 54</a>
+                                    <span class="text-xs text-slate-600 ml-2">*</span>
                                 </p>
                             </div>
                         </div>
 
                         <!-- Email -->
-                        <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-5 h-5 mt-0.5 text-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                             </svg>
-                            <p class="text-slate-300">
-                                <a href="mailto:gtmovel@live.com.pt" class="hover:text-primary transition-colors">gtmovel@live.com.pt</a>
+                            <p class="text-slate-300 text-sm">
+                                <a href="mailto:gtmovel@live.com.pt" class="hover:text-primary transition-colors font-medium">gtmovel@live.com.pt</a>
                             </p>
                         </div>
                     </div>
 
                     <!-- Notas custo chamadas -->
-                    <div class="mt-6 text-xs text-slate-500 space-y-1">
-                        <p>* custo de uma chamada para a rede fixa nacional</p>
-                        <p>** custo de uma chamada para a rede móvel nacional</p>
+                    <div class="mt-auto pt-8 text-xs text-slate-600 space-y-1">
+                        <p>* Chamada para rede fixa nacional</p>
+                        <p>** Chamada para rede móvel nacional</p>
                     </div>
                 </div>
 
                 <!-- Coluna 3: Horário de funcionamento -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Horário de funcionamento</h3>
+                <div class="flex flex-col">
+                    <h3 class="text-xs font-bold mb-6 text-slate-500 uppercase tracking-[0.15em]">Horário de Funcionamento</h3>
 
-                    <div class="space-y-4">
+                    <div class="space-y-6">
                         <!-- Semana -->
-                        <div>
-                            <div class="flex items-start justify-between gap-4">
-                                <span class="text-green-400 font-medium flex-shrink-0">Segunda-feira – Sexta-feira</span>
-                                <div class="text-right">
-                                    <p class="text-slate-300">9:00 – 12:30</p>
-                                    <p class="text-slate-300">14:30 – 19:00</p>
+                        <div class="pb-6 border-b border-slate-800/60">
+                            <div class="flex items-start justify-between gap-6">
+                                <span class="text-green-400 font-semibold text-sm flex-shrink-0 leading-relaxed">Segunda – Sexta</span>
+                                <div class="text-right space-y-1">
+                                    <p class="text-slate-300 text-sm font-medium">09:00 – 12:30</p>
+                                    <p class="text-slate-300 text-sm font-medium">14:30 – 19:00</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Sábado -->
-                        <div>
-                            <div class="flex items-center justify-between gap-4">
-                                <span class="text-slate-300 font-medium">Sábado</span>
-                                <p class="text-slate-300">9:00 – 13:00</p>
+                        <div class="pb-6 border-b border-slate-800/60">
+                            <div class="flex items-center justify-between gap-6">
+                                <span class="text-slate-300 font-semibold text-sm">Sábado</span>
+                                <p class="text-slate-300 text-sm font-medium">09:00 – 13:00</p>
                             </div>
                         </div>
 
                         <!-- Domingo -->
-                        <div>
-                            <div class="flex items-center justify-between gap-4">
-                                <span class="text-red-400 font-medium">Domingo</span>
-                                <p class="text-slate-300">Encerrados</p>
+                        <div class="pb-6">
+                            <div class="flex items-center justify-between gap-6">
+                                <span class="text-red-400 font-semibold text-sm">Domingo</span>
+                                <p class="text-slate-500 text-sm font-medium">Encerrados</p>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Links Rápidos -->
-                    <div class="mt-8 pt-8 border-t border-slate-800">
-                        <h4 class="font-semibold mb-4 text-sm text-slate-400 uppercase tracking-wider">Links Rápidos</h4>
-                        <nav class="space-y-2">
-                            <a href="/sobre/" class="block text-slate-400 hover:text-primary transition-colors text-sm">Sobre Nós</a>
-                            <a href="/portfolio/" class="block text-slate-400 hover:text-primary transition-colors text-sm">Portfólio</a>
-                            <a href="/orcamentos/" class="block text-slate-400 hover:text-primary transition-colors text-sm">Pedir Orçamento</a>
-                            <a href="/instalacoes/" class="block text-slate-400 hover:text-primary transition-colors text-sm">Nossas Instalações</a>
-                        </nav>
                     </div>
                 </div>
             </div>
 
-            <!-- Copyright -->
-            <div class="border-t border-slate-800 pt-8 text-center">
-                <p class="text-sm text-slate-400">
-                    © 2026 GT Móvel. Todos os direitos reservados. |
-                    <a href="https://www.siteideal.pt" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Desenvolvido por Site Ideal</a>
+            <!-- Copyright Minimalista -->
+            <div class="border-t border-slate-800 pt-8 mt-2 text-center">
+                <p class="text-sm text-slate-500">
+                    © 2026 <span class="text-slate-400 font-medium">GT Móvel</span> — Todos os direitos reservados
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- CSS para Footer -->
+    <!-- CSS para Footer Elegante -->
     <style>
-    .social-icon {
-        @apply w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary transition-all duration-300 transform hover:scale-110;
+    .social-icon-footer {
+        @apply w-13 h-13 flex items-center justify-center rounded-xl bg-slate-800/40 border border-slate-700/50;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .social-icon svg {
+    .social-icon-footer:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+    }
+
+    .social-icon-footer svg {
         @apply w-5 h-5;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .social-icon-footer:hover svg {
+        transform: scale(1.1) rotate(5deg);
+        filter: brightness(1.3);
     }
     </style>
 
