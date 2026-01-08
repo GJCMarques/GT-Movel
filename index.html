@@ -128,12 +128,11 @@
 
         .glass-header:not(.scrolled) .nav-link:hover {
             color: #FB923C;
-            text-shadow: 0 2px 12px rgba(251, 146, 60, 0.5);
         }
 
-        /* Logo branco no estado inicial */
+        /* Logo mantém cor original no estado inicial */
         .glass-header:not(.scrolled) .logo-img {
-            filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
         }
 
         /* Estado Scrolled: Fundo Branco (Texto Escuro) */
@@ -159,23 +158,23 @@
     <!-- HEADER CLEAN & PROFISSIONAL (Luxury UX) -->
     <header id="main-header" class="fixed w-full top-0 z-50 transition-all duration-300">
         <!-- Inicia transparente, sem shadow, sem border. JS adiciona .scrolled -->
-        <nav class="glass-header px-6 py-4 transition-all duration-500 bg-transparent border-none shadow-none">
+        <nav class="glass-header px-6 py-5 lg:py-6 transition-all duration-500 bg-transparent border-none shadow-none">
             <!-- Container flexível -->
             <div class="container mx-auto">
 
                 <!-- LAYOUT FLEX -->
-                <div class="flex items-center justify-between lg:justify-center lg:gap-16">
+                <div class="flex items-center justify-between lg:justify-center lg:gap-20">
 
                     <!-- 1. LOGÓTIPO -->
                     <a href="/" class="block flex-shrink-0 logo-hover">
                         <!-- Logo otimizado -->
-                        <img src="./assets/imgs/GT_logoNT_NB.png"
+                        <img src="./assets/imgs/GT_Logo50_NB.png"
                              alt="GT Móvel e Tien21"
-                             class="h-14 lg:h-20 w-auto object-contain logo-img">
+                             class="h-20 lg:h-28 w-auto object-contain logo-img">
                     </a>
 
                     <!-- 2. NAVEGAÇÃO DESKTOP (Minimalista & Elegante) -->
-                    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium tracking-wider uppercase">
+                    <nav class="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wider uppercase">
                         <a href="/" class="nav-link transition-colors">
                             Home
                         </a>
@@ -201,10 +200,10 @@
 
                     <!-- Mobile Menu Button (Visível apenas em mobile) -->
                     <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors" aria-label="Menu">
-                        <svg id="menu-icon" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg id="menu-icon" class="w-9 h-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
-                        <svg id="close-icon" class="hidden w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg id="close-icon" class="hidden w-9 h-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>

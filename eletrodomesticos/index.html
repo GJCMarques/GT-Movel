@@ -101,19 +101,19 @@
 
     <!-- HEADER (Sempre Branco - Sem Transparência) -->
     <header id="main-header" class="fixed w-full top-0 z-50 transition-all duration-300">
-        <nav class="glass-header px-6 py-4 transition-all duration-500">
+        <nav class="glass-header px-6 py-5 lg:py-6 transition-all duration-500">
             <div class="container mx-auto">
-                <div class="flex items-center justify-between lg:justify-center lg:gap-16">
+                <div class="flex items-center justify-between lg:justify-center lg:gap-20">
 
                     <!-- Logo -->
                     <a href="/" class="block flex-shrink-0 logo-hover">
-                        <img src="../assets/imgs/GT_logoNT_NB.png"
+                        <img src="../assets/imgs/GT_Logo50_NB.png"
                              alt="GT Móvel e Tien21"
-                             class="h-14 lg:h-20 w-auto object-contain logo-img">
+                             class="h-20 lg:h-28 w-auto object-contain logo-img">
                     </a>
 
                     <!-- Navegação Desktop -->
-                    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium tracking-wider uppercase">
+                    <nav class="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wider uppercase">
                         <a href="/" class="nav-link transition-colors">Home</a>
                         <a href="/eletrodomesticos/" class="nav-link active transition-colors">Eletrodomésticos</a>
                         <a href="/portfolio/" class="nav-link transition-colors">Portfólio</a>
@@ -125,7 +125,7 @@
 
                     <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Menu">
-                        <svg id="menu-icon" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg id="menu-icon" class="w-9 h-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </button>
@@ -164,7 +164,7 @@
                             <span class="text-primary font-bold text-xs uppercase tracking-wider">Parceiro Oficial</span>
                         </div>
                         <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-900 animate-fade-in-up" style="animation-delay: 0.1s;">
-                            Loja Eletrodomésticos <span class="text-primary">Tien21</span>
+                            Loja Eletrodomésticos <span style="color: #2e3094;">Tien21</span>
                         </h1>
                     </div>
 
@@ -376,8 +376,8 @@
 
     <!-- Scroll to Top Button -->
     <button id="scroll-to-top" class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-primary to-primary-dark text-white rounded-full shadow-2xl opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 z-40 group" aria-label="Voltar ao topo">
-        <!-- Seta Estilizada com Animação -->
-        <svg class="w-7 h-7 mx-auto relative z-10 arrow-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+        <!-- Seta Estilizada -->
+        <svg class="w-7 h-7 mx-auto relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
             <!-- Linha vertical -->
             <line x1="12" y1="19" x2="12" y2="5" stroke-linecap="round"/>
             <!-- Seta em V invertido (chevron) -->
@@ -389,26 +389,6 @@
             <circle id="progress-ring" cx="50" cy="50" r="45" fill="none" stroke="white" stroke-width="4"/>
         </svg>
     </button>
-
-    <!-- Animação da Seta -->
-    <style>
-        @keyframes arrow-bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-4px);
-            }
-        }
-
-        .arrow-bounce {
-            animation: arrow-bounce 2s ease-in-out infinite;
-        }
-
-        #scroll-to-top:hover .arrow-bounce {
-            animation: arrow-bounce 0.6s ease-in-out infinite;
-        }
-    </style>
 
     <!-- Page Animation Styles -->
     <style>
