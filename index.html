@@ -661,6 +661,7 @@
             background: linear-gradient(135deg, transparent, rgba(249, 115, 22, 0.3), transparent);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask-composite: exclude;
             opacity: 0;
             transition: opacity 0.5s ease;
@@ -828,7 +829,14 @@
     <!-- CSS para Footer Elegante -->
     <style>
     .social-icon-footer {
-        @apply w-13 h-13 flex items-center justify-center rounded-xl bg-slate-800/40 border border-slate-700/50;
+        width: 3.25rem;
+        height: 3.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        background: rgba(30, 41, 59, 0.4);
+        border: 1px solid rgba(51, 65, 85, 0.5);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -840,7 +848,8 @@
     }
 
     .social-icon-footer svg {
-        @apply w-5 h-5;
+        width: 1.25rem;
+        height: 1.25rem;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
