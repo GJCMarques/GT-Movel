@@ -50,6 +50,9 @@
         }
     </script>
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
 
@@ -190,120 +193,222 @@
             </div>
         </section>
 
-        <!-- Gallery Section -->
-        <section class="py-16 bg-white">
+        <!-- Galeria Principal - Grid Customizado Único para 9 Fotos -->
+        <section class="py-20 bg-gradient-to-b from-slate-50 to-white page-fade-in">
             <div class="container mx-auto px-6 lg:px-12">
-                <!-- Galeria em Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Grid Assimétrico Personalizado -->
+                <div class="grid grid-cols-2 md:grid-cols-6 auto-rows-[200px] gap-3 md:gap-4 animate-fade-in-up">
 
-                    <!-- Imagem 1 -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto1.jpg" data-caption="Trio de poltronas reclináveis em tons de cinza e bege">
-                        <img src="../assets/imgs/Foto1.jpg"
-                             alt="Projeto GT Móvel"
-                             class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                    <!-- Foto 1 - Grande Destaque (3x2) -->
+                    <div class="col-span-2 md:col-span-3 md:row-span-2 group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto1.jpg" data-caption="Trio de poltronas reclináveis em tons de cinza e bege">
+                        <div class="h-full overflow-hidden bg-slate-200">
+                            <img src="../assets/imgs/Foto1.jpg" alt="Projeto 1" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6">
+                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                                <p class="text-white text-lg font-semibold">Trio de poltronas reclináveis</p>
+                                <p class="text-white/80 text-sm mt-1">Ver detalhes</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Foto 2 - Quadrado Médio (2x2) -->
+                    <div class="col-span-1 md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto2.jpg" data-caption="Duas poltronas de relaxamento articuladas cinzentas">
+                        <div class="h-full overflow-hidden bg-slate-200">
+                            <img src="../assets/imgs/Foto2.jpg" alt="Projeto 2" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    </div>
+
+                    <!-- Foto 3 - Normal (1x1) -->
+                    <div class="col-span-1 md:col-span-1 md:row-span-1 group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto3.jpg" data-caption="Mesa de jantar em madeira com cadeiras estofadas rosa">
+                        <div class="h-full overflow-hidden bg-slate-200">
+                            <img src="../assets/imgs/Foto3.jpg" alt="Projeto 3" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    </div>
+
+                    <!-- Foto 4 - Normal (1x1) -->
+                    <div class="col-span-1 md:col-span-1 md:row-span-1 group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto4.jpg" data-caption="Sofá de canto moderno em dois tons, creme e castanho">
+                        <div class="h-full overflow-hidden bg-slate-200">
+                            <img src="../assets/imgs/Foto4.jpg" alt="Projeto 4" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    </div>
+
+                    <!-- Foto 5 - Horizontal (2x1) -->
+                    <div class="col-span-2 md:col-span-2 md:row-span-1 group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto5.jpg" data-caption="Par de cadeiras de jantar estofadas com pernas brancas">
+                        <div class="h-full overflow-hidden bg-slate-200">
+                            <img src="../assets/imgs/Foto5.jpg" alt="Projeto 5" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    </div>
+
+                    <!-- Foto 6 - Horizontal (2x1) -->
+                    <div class="col-span-2 md:col-span-2 md:row-span-1 group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto6.jpg" data-caption="Mecanismo de sofá-cama aberto com colchão branco">
+                        <div class="h-full overflow-hidden bg-slate-200">
+                            <img src="../assets/imgs/Foto6.jpg" alt="Projeto 6" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    </div>
+
+                    <!-- Foto 7 - Normal (1x1) -->
+                    <div class="col-span-1 md:col-span-1 md:row-span-1 group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto7.jpg" data-caption="Quarto de casal com cabeceira estofada e mobília branca">
+                        <div class="h-full overflow-hidden bg-slate-200">
+                            <img src="../assets/imgs/Foto7.jpg" alt="Projeto 7" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    </div>
+
+                    <!-- Foto 8 - Vertical Alto (1x2) -->
+                    <div class="col-span-1 md:col-span-1 md:row-span-2 group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto8.jpg" data-caption="Sofá chaise longue cinza metalizado em sala decorada">
+                        <div class="h-full overflow-hidden bg-slate-200">
+                            <img src="../assets/imgs/Foto8.jpg" alt="Projeto 8" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    </div>
+
+                    <!-- Foto 9 - Grande Destaque Final (4x2) -->
+                    <div class="col-span-2 md:col-span-4 md:row-span-2 group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto9.jpg" data-caption="Sofá modular grande em veludo azul marinho">
+                        <div class="h-full overflow-hidden bg-slate-200">
+                            <img src="../assets/imgs/Foto9.jpg" alt="Projeto 9" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6">
+                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                                <p class="text-white text-lg md:text-xl font-semibold">Sofá modular em veludo azul</p>
+                                <p class="text-white/80 text-sm mt-1">Ver detalhes</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorias Especiais -->
+
+        <!-- CATEGORIA 1: Quartos para Jovens -->
+        <section class="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100 page-fade-in">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <!-- Texto -->
+                    <div class="flex-1 text-center lg:text-left space-y-6 animate-fade-in-up">
+                        <div class="inline-block">
+                            <span class="inline-block px-4 py-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider rounded-full">Categoria</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-slate-900 leading-tight">Quartos para Jovens</h2>
+                        <p class="text-slate-600 text-lg leading-relaxed max-w-xl">Espaços modernos e funcionais, perfeitos para jovens. Designs contemporâneos que combinam estilo e praticidade.</p>
+                        <div class="inline-flex items-center gap-2 text-primary font-semibold group cursor-pointer">
+                            <span>Explorar Galeria</span>
+                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                             </svg>
                         </div>
                     </div>
 
-                    <!-- Imagem 2 -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto2.jpg" data-caption="Duas poltronas de relaxamento articuladas cinzentas">
-                        <img src="../assets/imgs/Foto2.jpg"
-                             alt="Projeto GT Móvel"
-                             class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                    <!-- Imagem Rotativa -->
+                    <div class="flex-1 lg:max-w-xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <div id="jovens-preview" class="relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer group category-preview" data-category="jovens">
+                            <div class="aspect-[4/3] bg-slate-200">
+                                <img src="../assets/imgs/Foto7.jpg" alt="Quartos Jovens" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                                <div class="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="text-lg font-semibold">Ver Galeria Completa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA 2: Quartos de Adulto -->
+        <section class="py-20 bg-white page-fade-in">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+                    <!-- Texto -->
+                    <div class="flex-1 text-center lg:text-left space-y-6 animate-fade-in-up">
+                        <div class="inline-block">
+                            <span class="inline-block px-4 py-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider rounded-full">Categoria</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-slate-900 leading-tight">Quartos de Adulto</h2>
+                        <p class="text-slate-600 text-lg leading-relaxed max-w-xl">Elegância e conforto para o seu descanso. Ambientes sofisticados que promovem tranquilidade e bem-estar.</p>
+                        <div class="inline-flex items-center gap-2 text-primary font-semibold group cursor-pointer">
+                            <span>Explorar Galeria</span>
+                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                             </svg>
                         </div>
                     </div>
 
-                    <!-- Imagem 3 -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto3.jpg" data-caption="Mesa de jantar em madeira com cadeiras estofadas rosa">
-                        <img src="../assets/imgs/Foto3.jpg"
-                             alt="Projeto GT Móvel"
-                             class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                    <!-- Imagem Rotativa -->
+                    <div class="flex-1 lg:max-w-xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <div id="adultos-preview" class="relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer group category-preview" data-category="adultos">
+                            <div class="aspect-[4/3] bg-slate-200">
+                                <img src="../assets/imgs/Foto4.jpg" alt="Quartos Adultos" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                                <div class="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="text-lg font-semibold">Ver Galeria Completa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA 3: Salas de Estar -->
+        <section class="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100 page-fade-in">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <!-- Texto -->
+                    <div class="flex-1 text-center lg:text-left space-y-6 animate-fade-in-up">
+                        <div class="inline-block">
+                            <span class="inline-block px-4 py-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider rounded-full">Categoria</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-slate-900 leading-tight">Salas de Estar</h2>
+                        <p class="text-slate-600 text-lg leading-relaxed max-w-xl">Ambientes acolhedores para reunir família e amigos. Espaços convidativos que criam memórias inesquecíveis.</p>
+                        <div class="inline-flex items-center gap-2 text-primary font-semibold group cursor-pointer">
+                            <span>Explorar Galeria</span>
+                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                             </svg>
                         </div>
                     </div>
 
-                    <!-- Imagem 4 -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto4.jpg" data-caption="Sofá de canto moderno em dois tons, creme e castanho">
-                        <img src="../assets/imgs/Foto4.jpg"
-                             alt="Projeto GT Móvel"
-                             class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                            </svg>
+                    <!-- Imagem Rotativa -->
+                    <div class="flex-1 lg:max-w-xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <div id="salas-preview" class="relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer group category-preview" data-category="salas">
+                            <div class="aspect-[4/3] bg-slate-200">
+                                <img src="../assets/imgs/Foto9.jpg" alt="Salas de Estar" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                                <div class="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="text-lg font-semibold">Ver Galeria Completa</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Imagem 5 -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto5.jpg" data-caption="Par de cadeiras de jantar estofadas com pernas brancas">
-                        <img src="../assets/imgs/Foto5.jpg"
-                             alt="Projeto GT Móvel"
-                             class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Imagem 6 -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto6.jpg" data-caption="Mecanismo de sofá-cama aberto com colchão branco">
-                        <img src="../assets/imgs/Foto6.jpg"
-                             alt="Projeto GT Móvel"
-                             class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Imagem 7 -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto7.jpg" data-caption="Quarto de casal com cabeceira estofada e mobília branca">
-                        <img src="../assets/imgs/Foto7.jpg"
-                             alt="Projeto GT Móvel"
-                             class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Imagem 8 -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto8.jpg" data-caption="Sofá chaise longue cinza metalizado em sala decorada">
-                        <img src="../assets/imgs/Foto8.jpg"
-                             alt="Projeto GT Móvel"
-                             class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Imagem 9 -->
-                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto9.jpg" data-caption="Sofá modular grande em veludo azul marinho">
-                        <img src="../assets/imgs/Foto9.jpg"
-                             alt="Projeto GT Móvel"
-                             class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                            </svg>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -611,21 +716,29 @@
         });
     </script>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 hidden items-center justify-center p-4" style="animation: lightbox-fade-in 0.3s ease-out;">
+    <!-- Lightbox Modal com Carrossel -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
         <!-- Close Button -->
-        <button id="lightbox-close" class="absolute top-6 right-6 md:top-8 md:right-8 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 group z-10" aria-label="Fechar">
+        <button id="lightbox-close" class="absolute top-6 right-6 md:top-8 md:right-8 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 group z-50" aria-label="Fechar">
             <svg class="w-6 h-6 md:w-7 md:h-7 text-white group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button>
 
-        <!-- Image Container -->
-        <div class="relative max-w-7xl w-full">
-            <img id="lightbox-image" src="" alt="" class="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl" style="animation: lightbox-zoom-in 0.3s ease-out;">
+        <!-- Swiper Container -->
+        <div class="relative max-w-7xl w-full h-full flex items-center">
+            <div class="swiper lightbox-swiper w-full">
+                <div class="swiper-wrapper" id="lightbox-swiper-wrapper">
+                    <!-- Slides serão inseridos dinamicamente -->
+                </div>
 
-            <!-- Caption -->
-            <p id="lightbox-caption" class="absolute bottom-0 left-0 right-0 text-white text-center py-4 px-6 bg-gradient-to-t from-black/80 to-transparent text-base md:text-lg font-medium rounded-b-lg"></p>
+                <!-- Navegação -->
+                <div class="swiper-button-prev swiper-button-prev-lightbox"></div>
+                <div class="swiper-button-next swiper-button-next-lightbox"></div>
+
+                <!-- Paginação -->
+                <div class="swiper-pagination swiper-pagination-lightbox"></div>
+            </div>
         </div>
     </div>
 
@@ -661,58 +774,221 @@
         }
     </style>
 
-    <!-- Lightbox JavaScript -->
+    <!-- Lightbox e Categorias JavaScript -->
     <script>
+        // Definir imagens por categoria
+        const categoryImages = {
+            jovens: [
+                { src: '../assets/imgs/Foto7.jpg', caption: 'Quarto de casal com cabeceira estofada e mobília branca' },
+                { src: '../assets/imgs/Foto1.jpg', caption: 'Trio de poltronas reclináveis em tons de cinza e bege' },
+                { src: '../assets/imgs/Foto2.jpg', caption: 'Duas poltronas de relaxamento articuladas cinzentas' }
+            ],
+            adultos: [
+                { src: '../assets/imgs/Foto4.jpg', caption: 'Sofá de canto moderno em dois tons, creme e castanho' },
+                { src: '../assets/imgs/Foto6.jpg', caption: 'Mecanismo de sofá-cama aberto com colchão branco' },
+                { src: '../assets/imgs/Foto8.jpg', caption: 'Sofá chaise longue cinza metalizado em sala decorada' }
+            ],
+            salas: [
+                { src: '../assets/imgs/Foto9.jpg', caption: 'Sofá modular grande em veludo azul marinho' },
+                { src: '../assets/imgs/Foto3.jpg', caption: 'Mesa de jantar em madeira com cadeiras estofadas rosa' },
+                { src: '../assets/imgs/Foto5.jpg', caption: 'Par de cadeiras de jantar estofadas com pernas brancas' }
+            ]
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
+            let lightboxSwiper;
             const lightbox = document.getElementById('lightbox');
-            const lightboxImage = document.getElementById('lightbox-image');
-            const lightboxCaption = document.getElementById('lightbox-caption');
             const closeBtn = document.getElementById('lightbox-close');
-            const triggers = document.querySelectorAll('.lightbox-trigger');
+            const swiperWrapper = document.getElementById('lightbox-swiper-wrapper');
 
-            // Open lightbox
-            triggers.forEach(trigger => {
-                trigger.addEventListener('click', () => {
-                    const imageSrc = trigger.getAttribute('data-image');
-                    const caption = trigger.getAttribute('data-caption');
+            // Rotação automática das imagens preview com fade suave
+            function startPreviewRotation(previewId, images) {
+                const preview = document.getElementById(previewId);
+                const img = preview.querySelector('img');
+                let currentIndex = 0;
 
-                    lightboxImage.src = imageSrc;
-                    lightboxCaption.textContent = caption;
-                    lightbox.classList.add('active');
-                    document.body.classList.add('lightbox-open');
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    // Fade out
+                    img.style.transition = 'opacity 0.6s ease-in-out';
+                    img.style.opacity = '0';
+
+                    setTimeout(() => {
+                        img.src = images[currentIndex].src;
+                        // Fade in
+                        img.style.opacity = '1';
+                    }, 600);
+                }, 3000); // Muda a cada 3 segundos
+            }
+
+            // Iniciar rotações
+            startPreviewRotation('jovens-preview', categoryImages.jovens);
+            startPreviewRotation('adultos-preview', categoryImages.adultos);
+            startPreviewRotation('salas-preview', categoryImages.salas);
+
+            // Função para abrir lightbox com imagens
+            function openLightbox(images, startIndex = 0) {
+                // Limpar slides existentes
+                swiperWrapper.innerHTML = '';
+
+                // Adicionar slides
+                images.forEach((img, index) => {
+                    const slide = document.createElement('div');
+                    slide.className = 'swiper-slide';
+                    slide.innerHTML = `
+                        <div class="flex items-center justify-center h-full">
+                            <div class="relative w-full max-w-5xl">
+                                <img src="${img.src}" alt="${img.caption}" class="w-full h-auto max-h-[80vh] object-contain rounded-lg">
+                                <p class="text-white text-center mt-4 text-lg">${img.caption}</p>
+                            </div>
+                        </div>
+                    `;
+                    swiperWrapper.appendChild(slide);
+                });
+
+                // Mostrar lightbox
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.classList.add('lightbox-open');
+
+                // Inicializar/Reinicializar Swiper
+                if (lightboxSwiper) {
+                    lightboxSwiper.destroy(true, true);
+                }
+
+                lightboxSwiper = new Swiper('.lightbox-swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: images.length > 1,
+                    initialSlide: startIndex,
+                    keyboard: {
+                        enabled: true,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination-lightbox',
+                        clickable: true,
+                        dynamicBullets: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next-lightbox',
+                        prevEl: '.swiper-button-prev-lightbox',
+                    },
+                });
+            }
+
+            // Função para fechar lightbox
+            function closeLightbox() {
+                lightbox.classList.remove('flex');
+                lightbox.classList.add('hidden');
+                document.body.classList.remove('lightbox-open');
+
+                if (lightboxSwiper) {
+                    lightboxSwiper.destroy(true, true);
+                    lightboxSwiper = null;
+                }
+            }
+
+            // Click nas categorias preview
+            document.querySelectorAll('.category-preview').forEach(preview => {
+                preview.addEventListener('click', () => {
+                    const category = preview.getAttribute('data-category');
+                    openLightbox(categoryImages[category]);
                 });
             });
 
-            // Close lightbox function
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.classList.remove('lightbox-open');
+            // Click na galeria normal
+            document.querySelectorAll('.lightbox-trigger').forEach((trigger, index) => {
+                trigger.addEventListener('click', () => {
+                    const imageSrc = trigger.getAttribute('data-image');
+                    const caption = trigger.getAttribute('data-caption');
+                    openLightbox([{ src: imageSrc, caption: caption }]);
+                });
+            });
 
-                // Reset image after animation
-                setTimeout(() => {
-                    lightboxImage.src = '';
-                    lightboxCaption.textContent = '';
-                }, 300);
-            }
-
-            // Close via button
+            // Fechar lightbox
             closeBtn.addEventListener('click', closeLightbox);
 
-            // Close by clicking outside image
             lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
+                // Fechar se clicar no backdrop (fundo) ou em elementos que não sejam a imagem
+                const swiperSlide = e.target.closest('.swiper-slide');
+                const swiperButton = e.target.closest('.swiper-button-prev-lightbox, .swiper-button-next-lightbox');
+                const swiperPagination = e.target.closest('.swiper-pagination-lightbox');
+                const closeButton = e.target.closest('#lightbox-close');
+                const isImage = e.target.tagName === 'IMG';
+
+                // Só não fechar se clicar na imagem, nos botões de navegação, paginação ou botão de fechar
+                if (!isImage && !swiperButton && !swiperPagination && !closeButton) {
                     closeLightbox();
                 }
             });
 
-            // Close with ESC key
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
                     closeLightbox();
                 }
             });
         });
     </script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Swiper Lightbox Styles -->
+    <style>
+        /* Navegação Swiper no Lightbox */
+        .swiper-button-prev-lightbox,
+        .swiper-button-next-lightbox {
+            color: white;
+            background: rgba(249, 115, 22, 0.9);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-button-prev-lightbox:hover,
+        .swiper-button-next-lightbox:hover {
+            background: rgba(249, 115, 22, 1);
+            transform: scale(1.1);
+        }
+
+        .swiper-button-prev-lightbox::after,
+        .swiper-button-next-lightbox::after {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Paginação Swiper no Lightbox */
+        .swiper-pagination-lightbox {
+            bottom: 20px !important;
+        }
+
+        .swiper-pagination-lightbox .swiper-pagination-bullet {
+            background: white;
+            opacity: 0.6;
+            width: 12px;
+            height: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-pagination-lightbox .swiper-pagination-bullet-active {
+            background: #F97316;
+            opacity: 1;
+            width: 36px;
+            border-radius: 6px;
+        }
+
+        /* Lightbox Swiper Container */
+        .lightbox-swiper {
+            height: 100%;
+        }
+
+        .lightbox-swiper .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 
 </body>
 </html>
