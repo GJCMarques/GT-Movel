@@ -1,45 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary Meta Tags -->
-    <title>Nossas Instalações - GT Móvel | Visite as Nossas Lojas em Vila Nova de Gaia</title>
-    <meta name="title" content="Nossas Instalações - GT Móvel | Lojas em Vila Nova de Gaia">
-    <meta name="description" content="Visite as nossas lojas em Vila Nova de Gaia. GT Móvel Mobiliário na Rua Luís de Camões e GT Móvel Electrodomésticos na Av. da República. Horário alargado.">
-    <meta name="keywords" content="gt móvel lojas, vila nova de gaia, móveis porto, eletrodomésticos gaia, instalações gt móvel">
-    <meta name="author" content="GT Móvel - Andrade, Silva & Machado, Lda">
+    <title>Instalações - GT Móvel | Rigor e Profissionalismo</title>
+    <meta name="description" content="Veja o nosso processo de instalação. Garantimos um serviço limpo, rigoroso e profissional em sua casa.">
+    <meta name="author" content="GT Móvel">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.gtmovel.com/instalacoes/">
-    <meta property="og:title" content="Nossas Instalações - GT Móvel">
-    <meta property="og:description" content="Visite as nossas lojas em Vila Nova de Gaia. Duas lojas especializadas em móveis e eletrodomésticos.">
-    <meta property="og:image" content="https://www.gtmovel.com/assets/imgs/og-image.svg">
-    <meta property="og:locale" content="pt_PT">
+    <link rel="icon" type="image/png" href="../assets/imgs/favicon.png">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.gtmovel.com/instalacoes/">
-    <meta property="twitter:title" content="Nossas Instalações - GT Móvel">
-    <meta property="twitter:description" content="Visite as nossas lojas em Vila Nova de Gaia. Duas lojas especializadas em móveis e eletrodomésticos.">
-    <meta property="twitter:image" content="https://www.gtmovel.com/assets/imgs/og-image.svg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/assets/imgs/favicon.svg">
-    <link rel="apple-touch-icon" href="/assets/imgs/apple-touch-icon.svg">
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://www.gtmovel.com/instalacoes/">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -47,521 +23,225 @@
                     colors: {
                         primary: '#F97316',
                         'primary-dark': '#EA580C',
-                        dark: '#0F172A'
+                        'primary-light': '#FB923C',
+                        dark: '#0F172A',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif']
-                    }
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['EB Garamond', 'serif'],
+                    },
+                    spacing: {
+                        '13': '3.25rem',
+                    },
                 }
             }
         }
     </script>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        #main-header { position: sticky; top: 0; z-index: 50; transition: all 0.3s ease; }
+        #main-header.hide { transform: translateY(-100%); }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .nav-link { color: #1e293b !important; text-shadow: none !important; font-weight: 500; }
+        .nav-link:hover { color: #F97316 !important; }
+        .logo-img { filter: none !important; }
+        #mobile-menu-btn { color: #1e293b; }
+
+        /* Estilo Inovador para Galeria de Instalações */
+        .inst-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-gap: 20px;
+        }
+        .inst-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.2);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .inst-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px -20px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        .inst-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s ease;
+        }
+        .inst-item:hover img { transform: scale(1.1); }
+        
+        /* Layout Editorial para 7 Fotos */
+        .pic-1 { grid-column: span 8; grid-row: span 2; height: 500px; } /* Destaque */
+        .pic-2 { grid-column: span 4; grid-row: span 1; height: 240px; }
+        .pic-3 { grid-column: span 4; grid-row: span 1; height: 240px; }
+        .pic-4 { grid-column: span 3; grid-row: span 2; height: 450px; }
+        .pic-5 { grid-column: span 6; grid-row: span 2; height: 450px; }
+        .pic-6 { grid-column: span 3; grid-row: span 1; height: 215px; }
+        .pic-7 { grid-column: span 3; grid-row: span 1; height: 215px; }
+
+        @media (max-width: 768px) {
+            .inst-grid { display: flex; flex-direction: column; }
+            .inst-item { height: 300px !important; }
+        }
+    </style>
 </head>
-<body class="bg-white">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-primary selection:text-white">
 
-    <!-- HEADER: Copiar de components-header.html -->
-    <header id="main-header" class="fixed w-full top-0 z-50">
-        <nav class="glass-header px-6 py-4 bg-white/85 backdrop-blur-xl shadow-sm transition-all duration-300">
-            <div class="container mx-auto flex items-center justify-between">
-                <!-- Logo -->
-                <a href="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
-                        <span class="text-white font-bold text-xl">GT</span>
-                    </div>
-                    <div class="hidden sm:flex flex-col">
-                        <span class="text-xl font-bold text-primary">GT Móvel</span>
-                        <span class="text-xs text-slate-600">Móveis & Eletrodomésticos</span>
-                    </div>
-                </a>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex items-center gap-6">
-                    <a href="/" class="nav-link flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-primary transition-colors relative group">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                        </svg>
-                        <span>Home</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+    <header id="main-header" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <nav class="glass-header px-6 py-5 lg:py-6 transition-all duration-500">
+            <div class="container mx-auto">
+                <div class="flex items-center justify-between lg:justify-center lg:gap-20">
+                    <a href="/" class="block flex-shrink-0 logo-hover">
+                        <img src="../assets/imgs/GT_Logo50_NB.png" alt="GT Móvel" class="h-20 lg:h-28 w-auto object-contain logo-img">
                     </a>
-                    <a href="/eletrodomesticos/" class="nav-link flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-primary transition-colors relative group">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
-                        </svg>
-                        <span>Loja Eletrodomésticos</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="/portfolio/" class="nav-link flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-primary transition-colors relative group">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                        </svg>
-                        <span>Portfólio / Galeria</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="/sobre/" class="nav-link flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-primary transition-colors relative group">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-                        </svg>
-                        <span>Sobre Nós</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="/orcamentos/" class="nav-link flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-primary transition-colors relative group">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                        </svg>
-                        <span>Orçamentos</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="/contactos/" class="nav-link flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-primary transition-colors relative group">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                        </svg>
-                        <span>Contactos</span>
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="/instalacoes/" class="nav-link active flex items-center gap-2 text-sm font-medium text-primary relative group">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                        </svg>
-                        <span>Nossas Instalações</span>
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
-                    </a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Menu">
-                    <svg id="menu-icon" class="w-6 h-6 text-slate-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                    <svg id="close-icon" class="hidden w-6 h-6 text-slate-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+                    <nav class="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wider uppercase">
+                        <a href="/" class="nav-link transition-colors">Home</a>
+                        <a href="/eletrodomesticos/" class="nav-link transition-colors">Eletrodomésticos</a>
+                        <a href="/portfolio/" class="nav-link transition-colors">Portfólio</a>
+                        <a href="/sobre/" class="nav-link transition-colors">Sobre Nós</a>
+                        <a href="/instalacoes/" class="nav-link active transition-colors">Instalações</a>
+                        <a href="/orcamentos/" class="nav-link transition-colors">Orçamentos</a>
+                        <a href="/contactos/" class="nav-link transition-colors">Contactos</a>
+                    </nav>
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Menu">
+                        <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+                    </button>
+                </div>
             </div>
         </nav>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden fixed inset-0 top-[72px] bg-white z-40 lg:hidden overflow-y-auto">
-            <nav class="container mx-auto px-6 py-8 flex flex-col gap-4">
-                <a href="/" class="flex items-center gap-3 p-4 rounded-xl hover:bg-slate-50 transition-colors">
-                    <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                    </svg>
-                    <span class="font-medium text-slate-700">Home</span>
-                </a>
-                <a href="/eletrodomesticos/" class="flex items-center gap-3 p-4 rounded-xl hover:bg-slate-50 transition-colors">
-                    <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
-                    </svg>
-                    <span class="font-medium text-slate-700">Loja Eletrodomésticos</span>
-                </a>
-                <a href="/portfolio/" class="flex items-center gap-3 p-4 rounded-xl hover:bg-slate-50 transition-colors">
-                    <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                    </svg>
-                    <span class="font-medium text-slate-700">Portfólio / Galeria</span>
-                </a>
-                <a href="/sobre/" class="flex items-center gap-3 p-4 rounded-xl hover:bg-slate-50 transition-colors">
-                    <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-                    </svg>
-                    <span class="font-medium text-slate-700">Sobre Nós</span>
-                </a>
-                <a href="/orcamentos/" class="flex items-center gap-3 p-4 rounded-xl hover:bg-slate-50 transition-colors">
-                    <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                    </svg>
-                    <span class="font-medium text-slate-700">Orçamentos</span>
-                </a>
-                <a href="/contactos/" class="flex items-center gap-3 p-4 rounded-xl hover:bg-slate-50 transition-colors">
-                    <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                    </svg>
-                    <span class="font-medium text-slate-700">Contactos</span>
-                </a>
-                <a href="/instalacoes/" class="flex items-center gap-3 p-4 rounded-xl bg-primary/10 border-2 border-primary">
-                    <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                    </svg>
-                    <span class="font-medium text-primary">Nossas Instalações</span>
-                </a>
-            </nav>
-        </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="pt-20">
-
-        <!-- Hero Section -->
-        <section class="hero-gradient pt-32 pb-16">
-            <div class="container mx-auto px-6 text-center">
-                <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold text-white mb-6">
-                    Desde 1977
-                </span>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-serif">
-                    Nossas Instalações
-                </h1>
-                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-8">
-                    Visite-nos nas nossas duas lojas em Vila Nova de Gaia. Espaços modernos e acolhedores com uma vasta seleção de móveis e eletrodomésticos.
-                </p>
-            </div>
-        </section>
-
-        <!-- Loja 1: Móveis -->
-        <section class="py-16">
-            <div class="container mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
-                            Loja Principal
-                        </span>
-                        <h2 class="text-4xl font-bold text-slate-900 mt-4 mb-6 font-serif">GT Móvel Mobiliário</h2>
-
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-start gap-4">
-                                <svg class="w-6 h-6 text-primary mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                                </svg>
-                                <div>
-                                    <p class="font-semibold text-slate-900">Rua Luís de Camões, Nº 357</p>
-                                    <p class="text-slate-600">4430-194 Vila Nova de Gaia, Porto</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-4">
-                                <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                                </svg>
-                                <p class="text-slate-900 font-medium">22 379 74 54</p>
-                            </div>
-
-                            <div class="flex items-start gap-4">
-                                <svg class="w-6 h-6 text-primary mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <div>
-                                    <p class="text-slate-900 font-medium">Seg-Sex: 9h-12:30h / 14:30h-19h</p>
-                                    <p class="text-slate-900 font-medium">Sábado: 9h-13h</p>
-                                    <p class="text-red-600 font-medium mt-1">Domingo: Encerrados</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-wrap gap-4">
-                            <a href="/contactos/" class="bg-gradient-to-r from-primary to-orange-600 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300">
-                                Contactar
-                            </a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Rua+Luís+de+Camões+357+Vila+Nova+de+Gaia" target="_blank" class="border-2 border-primary text-primary font-semibold py-3 px-6 rounded-xl hover:bg-primary hover:text-white transition-all duration-300">
-                                Ver no Mapa
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.2!2d-8.61!3d41.13!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA3JzQ4LjAiTiA4wrAzNic0MC4wIlc!5e0!3m2!1spt-PT!2spt!4v1234567890"
-                            width="100%"
-                            height="450"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Loja 2: Eletrodomésticos -->
-        <section class="py-16 bg-slate-50">
-            <div class="container mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.1!2d-8.61!3d41.14!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA4JzI0LjAiTiA4wrAzNic0MC4wIlc!5e0!3m2!1spt-PT!2spt!4v1234567891"
-                            width="100%"
-                            height="450"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-
-                    <div class="order-1 lg:order-2">
-                        <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
-                            Parceiro Tien21
-                        </span>
-                        <h2 class="text-4xl font-bold text-slate-900 mt-4 mb-6 font-serif">GT Móvel Electrodomésticos</h2>
-
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-start gap-4">
-                                <svg class="w-6 h-6 text-primary mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                                </svg>
-                                <div>
-                                    <p class="font-semibold text-slate-900">Avenida da República, Nº 457</p>
-                                    <p class="text-slate-600">4430-199 Vila Nova de Gaia, Porto</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-4">
-                                <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                                </svg>
-                                <p class="text-slate-900 font-medium">91 853 81 84</p>
-                            </div>
-
-                            <div class="flex items-start gap-4">
-                                <svg class="w-6 h-6 text-primary mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <div>
-                                    <p class="text-slate-900 font-medium">Seg-Sex: 9h-12:30h / 14:30h-19h</p>
-                                    <p class="text-slate-900 font-medium">Sábado: 9h-13h</p>
-                                    <p class="text-red-600 font-medium mt-1">Domingo: Encerrados</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-wrap gap-4">
-                            <a href="/eletrodomesticos/" class="bg-gradient-to-r from-primary to-orange-600 text-white font-semibold py-3 px-6 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300">
-                                Ver Catálogo
-                            </a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Avenida+da+República+457+Vila+Nova+de+Gaia" target="_blank" class="border-2 border-primary text-primary font-semibold py-3 px-6 rounded-xl hover:bg-primary hover:text-white transition-all duration-300">
-                                Ver no Mapa
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Info Section -->
-        <section class="py-16">
-            <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 font-serif">
-                        Mais de 45 Anos de Experiência
-                    </h2>
-                    <p class="text-lg text-slate-600 mb-12">
-                        Desde 1977, a GT Móvel tem servido a comunidade de Vila Nova de Gaia com móveis de qualidade e eletrodomésticos de marcas reconhecidas. As nossas instalações modernas oferecem um ambiente confortável para explorar as nossas soluções.
+    <main>
+        <section class="relative py-12 lg:py-16 bg-gradient-to-br from-slate-50 via-white to-slate-100 overflow-hidden border-b border-slate-200 page-fade-in">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-left">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-slate-900 animate-fade-in-up mb-4">
+                        Instalações
+                    </h1>
+                    <p class="text-base md:text-lg text-slate-600 max-w-3xl animate-fade-in-up" style="animation-delay: 0.1s;">
+                        O rigor técnico e a limpeza em cada montagem. Veja como cuidamos do seu espaço durante a transformação.
                     </p>
-
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="bg-slate-50 rounded-2xl p-8">
-                            <div class="w-16 h-16 bg-gradient-to-br from-primary to-orange-600 rounded-2xl flex items-center justify-center mb-4 mx-auto">
-                                <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Showroom Completo</h3>
-                            <p class="text-slate-600">Ampla exposição de móveis e eletrodomésticos</p>
-                        </div>
-
-                        <div class="bg-slate-50 rounded-2xl p-8">
-                            <div class="w-16 h-16 bg-gradient-to-br from-primary to-orange-600 rounded-2xl flex items-center justify-center mb-4 mx-auto">
-                                <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Atendimento Especializado</h3>
-                            <p class="text-slate-600">Equipa experiente pronta para ajudar</p>
-                        </div>
-
-                        <div class="bg-slate-50 rounded-2xl p-8">
-                            <div class="w-16 h-16 bg-gradient-to-br from-primary to-orange-600 rounded-2xl flex items-center justify-center mb-4 mx-auto">
-                                <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Estacionamento</h3>
-                            <p class="text-slate-600">Fácil acesso e estacionamento disponível</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
+        <section class="py-20 bg-white page-fade-in">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="inst-grid">
+                    <div class="inst-item pic-1 group cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto1.jpg" data-caption="Montagem de estrutura principal">
+                        <img src="../assets/imgs/Foto1.jpg" alt="Instalação 1">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white border border-white px-6 py-2 uppercase text-xs tracking-widest">Ver Detalhe</span>
+                        </div>
+                    </div>
+                    <div class="inst-item pic-2 group cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto2.jpg">
+                        <img src="../assets/imgs/Foto2.jpg" alt="Instalação 2">
+                    </div>
+                    <div class="inst-item pic-3 group cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto3.jpg">
+                        <img src="../assets/imgs/Foto3.jpg" alt="Instalação 3">
+                    </div>
+                    <div class="inst-item pic-4 group cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto4.jpg">
+                        <img src="../assets/imgs/Foto4.jpg" alt="Instalação 4">
+                    </div>
+                    <div class="inst-item pic-5 group cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto5.jpg">
+                        <img src="../assets/imgs/Foto5.jpg" alt="Instalação 5">
+                    </div>
+                    <div class="inst-item pic-6 group cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto6.jpg">
+                        <img src="../assets/imgs/Foto6.jpg" alt="Instalação 6">
+                    </div>
+                    <div class="inst-item pic-7 group cursor-pointer lightbox-trigger" data-image="../assets/imgs/Foto7.jpg">
+                        <img src="../assets/imgs/Foto7.jpg" alt="Instalação 7">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- FOOTER: Copiar de components-footer.html -->
     <footer class="bg-slate-900 text-white pt-16 pb-8">
-        <div class="container mx-auto px-6">
-            <!-- Grid 3 colunas -->
+        <div class="container mx-auto px-10 lg:px-20">
             <div class="grid md:grid-cols-3 gap-12 mb-12">
-
-                <!-- Coluna 1: Siga-nos + Logo Tien21 -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Siga-nos:</h3>
-
-                    <!-- Redes Sociais -->
-                    <div class="flex gap-4 mb-8">
-                        <a href="https://www.facebook.com/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon group" aria-label="Facebook">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://www.instagram.com/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon group" aria-label="Instagram">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://www.linkedin.com/company/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon group" aria-label="LinkedIn">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://twitter.com/gtmovel" target="_blank" rel="noopener noreferrer" class="social-icon group" aria-label="Twitter">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
-                        </a>
+                <div class="flex flex-col">
+                    <h3 class="text-xs font-bold mb-6 text-slate-500 uppercase tracking-[0.15em]">Parceiro Oficial</h3>
+                    <div class="mb-8">
+                        <img src="../assets/imgs/tien21_NB.png" alt="TIEN21" class="h-44 lg:h-52 xl:h-60 w-auto object-contain opacity-85 hover:opacity-100 transition-all duration-300 hover:scale-105">
                     </div>
-
-                    <!-- Logo Tien21 -->
-                    <div class="mt-8 pt-8 border-t border-slate-800">
-                        <p class="text-sm text-slate-400 mb-4">Em parceria com TIEN21</p>
-                        <div class="flex items-center gap-3">
-                            <div class="bg-white px-4 py-2 rounded">
-                                <span class="text-blue-600 font-bold text-2xl">TIEN<span class="text-red-600">21</span></span>
+                    <div class="mt-auto">
+                        <h4 class="text-xs font-bold mb-5 text-slate-500 uppercase tracking-[0.15em]">Siga-nos</h4>
+                        <div class="flex gap-4">
                             </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col">
+                    <h3 class="text-xs font-bold mb-6 text-slate-500 uppercase tracking-[0.15em]">Contactos</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="font-bold text-white text-base leading-snug">Andrade, Silva & Machado, Lda</p>
+                            <p class="text-sm text-slate-500 mt-1.5 font-medium">GT MÓVEL</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <p class="text-slate-300 text-sm">Rua Luis de Camões, Nº 357<br>4430-134 Vila Nova de Gaia</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <p class="text-slate-300 text-sm">91 853 81 84 / 22 379 74 54</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Coluna 2: Contactos -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Contactos</h3>
-
-                    <div class="space-y-4">
-                        <!-- Nome Empresa -->
-                        <div>
-                            <p class="font-semibold text-white">Andrade, Silva & Machado, Lda</p>
-                            <p class="text-sm text-slate-400">GT MÓVEL</p>
+                <div class="flex flex-col">
+                    <h3 class="text-xs font-bold mb-6 text-slate-500 uppercase tracking-[0.15em]">Horário de Funcionamento</h3>
+                    <div class="space-y-6 text-sm">
+                        <div class="pb-6 border-b border-slate-800/60 flex justify-between">
+                            <span class="text-green-400 font-semibold">Segunda – Sexta</span>
+                            <span class="text-slate-300">09:00 – 12:30 / 14:30 – 19:00</span>
                         </div>
-
-                        <!-- Morada -->
-                        <div class="flex items-start gap-3">
-                            <svg class="w-5 h-5 mt-1 text-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                            </svg>
-                            <div>
-                                <p class="text-slate-300">Rua Luis de Camões, Nº 357</p>
-                                <p class="text-slate-300">Vila Nova de Gaia Portugal 4430-134</p>
-                            </div>
+                        <div class="pb-6 border-b border-slate-800/60 flex justify-between">
+                            <span class="text-slate-300 font-semibold">Sábado</span>
+                            <span class="text-slate-300">09:00 – 13:00</span>
                         </div>
-
-                        <!-- Telefones -->
-                        <div class="flex items-start gap-3">
-                            <svg class="w-5 h-5 mt-1 text-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                            </svg>
-                            <div>
-                                <p class="text-slate-300">
-                                    <a href="tel:+351918538184" class="hover:text-primary transition-colors">91 853 81 84</a> **
-                                </p>
-                                <p class="text-slate-300">
-                                    <a href="tel:+351223797454" class="hover:text-primary transition-colors">22 379 74 54</a> *
-                                </p>
-                            </div>
+                        <div class="flex justify-between">
+                            <span class="text-red-400 font-semibold">Domingo</span>
+                            <span class="text-slate-500">Encerrados</span>
                         </div>
-
-                        <!-- Email -->
-                        <div class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-primary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                            </svg>
-                            <p class="text-slate-300">
-                                <a href="mailto:gtmovel@live.com.pt" class="hover:text-primary transition-colors">gtmovel@live.com.pt</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Notas custo chamadas -->
-                    <div class="mt-6 text-xs text-slate-500 space-y-1">
-                        <p>* custo de uma chamada para a rede fixa nacional</p>
-                        <p>** custo de uma chamada para a rede móvel nacional</p>
-                    </div>
-                </div>
-
-                <!-- Coluna 3: Horário de funcionamento -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Horário de funcionamento</h3>
-
-                    <div class="space-y-4">
-                        <!-- Semana -->
-                        <div>
-                            <div class="flex items-start justify-between gap-4">
-                                <span class="text-green-400 font-medium flex-shrink-0">Segunda-feira – Sexta-feira</span>
-                                <div class="text-right">
-                                    <p class="text-slate-300">9:00 – 12:30</p>
-                                    <p class="text-slate-300">14:30 – 19:00</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sábado -->
-                        <div>
-                            <div class="flex items-center justify-between gap-4">
-                                <span class="text-slate-300 font-medium">Sábado</span>
-                                <p class="text-slate-300">9:00 – 13:00</p>
-                            </div>
-                        </div>
-
-                        <!-- Domingo -->
-                        <div>
-                            <div class="flex items-center justify-between gap-4">
-                                <span class="text-red-400 font-medium">Domingo</span>
-                                <p class="text-slate-300">Encerrados</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Links Rápidos -->
-                    <div class="mt-8 pt-8 border-t border-slate-800">
-                        <h4 class="font-semibold mb-4 text-sm text-slate-400 uppercase tracking-wider">Links Rápidos</h4>
-                        <nav class="space-y-2">
-                            <a href="/sobre/" class="block text-slate-400 hover:text-primary transition-colors text-sm">Sobre Nós</a>
-                            <a href="/portfolio/" class="block text-slate-400 hover:text-primary transition-colors text-sm">Portfólio</a>
-                            <a href="/orcamentos/" class="block text-slate-400 hover:text-primary transition-colors text-sm">Pedir Orçamento</a>
-                            <a href="/instalacoes/" class="block text-slate-400 hover:text-primary transition-colors text-sm">Nossas Instalações</a>
-                        </nav>
                     </div>
                 </div>
             </div>
-
-            <!-- Copyright -->
-            <div class="border-t border-slate-800 pt-8 text-center">
-                <p class="text-sm text-slate-400">
-                    © 2026 GT Móvel. Todos os direitos reservados. |
-                    <a href="https://www.siteideal.pt" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Desenvolvido por Site Ideal</a>
-                </p>
+            <div class="border-t border-slate-800 pt-8 mt-2 text-center text-sm text-slate-500">
+                © 2026 <span class="text-slate-400 font-medium">GT Móvel</span> — Todos os direitos reservados
             </div>
         </div>
     </footer>
 
-    <!-- CSS para Footer -->
-    <style>
-    .social-icon {
-        @apply w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary transition-all duration-300 transform hover:scale-110;
-    }
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+            let lastScroll = 0;
+            const scrollThreshold = 150;
 
-    .social-icon svg {
-        @apply w-5 h-5;
-    }
-    </style>
-
-    <!-- JavaScript -->
-    <script src="/assets/js/main.js"></script>
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > scrollThreshold && currentScroll > lastScroll) {
+                    header.classList.add('hide');
+                } else {
+                    header.classList.remove('hide');
+                }
+                lastScroll = currentScroll;
+            });
+        });
+    </script>
 </body>
 </html>
